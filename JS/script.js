@@ -1,18 +1,18 @@
-//déclarer les constantes utiles : la sidebar qui se décale + le burger menu
+// Page 1 airplane
 
-const toggleButton = document.getElementById('menu-button-container');
-const menuBtn = document.getElementById('side-bar');
+let airplane = document.querySelector('.airplane')
+let go = document.querySelector('.go')
+let cache = document.querySelector('.cache')
+let reload = document.querySelector('.reload')
 
-//déclarer fonction pour faire entrer/sortir la side bar en cliquant sur le burger menu
+go.addEventListener('click', ()=>{
+    airplane.classList.add('active')
+    cache.classList.add('active')
+    reload.classList.remove('active')
+})
 
-toggleButton.addEventListener('click', (show) => {
-menuBtn.classList.toggle('active');
-});
-
-//déclarer fonction pour faire entrer la sidebar si click sur le main content
-
-const content = document.querySelector('.content');
-
-content.addEventListener('click', () => {
-    menuBtn.classList.remove('active');
+reload.addEventListener('click', ()=>{
+    airplane.classList.remove('active')
+    cache.classList.remove('active')
+    reload.classList.add('active')
 })

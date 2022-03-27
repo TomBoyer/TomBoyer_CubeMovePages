@@ -1,0 +1,425 @@
+/* PAGE 1 */
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    min-height: 100vh;
+
+    background: #1b0b5528;
+}
+
+/* GRID 1 */
+
+.art1 {
+    grid-area: 1 / 1 / 2/ 2;
+
+    background: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.go {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+
+    height: 4em;
+    width: 4em;
+
+    background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    padding: .2em;
+    text-shadow: 0px 2px 0px #810e05;
+
+    transition: .1s;
+}
+
+.go p {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.go:hover {
+    box-shadow: 4px 3px 0px 0px #8a2a21;
+    transform: translate(-4px, -3px);
+}
+
+.go:active {
+    transform: translate(4px, 3px);
+    box-shadow: none;
+}
+
+.art1 .reload {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+
+    transition: .5s;
+
+    cursor: pointer;
+
+    font-size: 2em;
+}
+
+.art1 .reload.active{
+    animation: reload .5s;
+}
+
+@keyframes reload {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/* END GRID 1 */
+
+/* GRID 2 */
+.art2 {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+/* END GRID 2 */
+
+/* GRID 3 */
+.art3 {
+    grid-area: 2 / 2 / 3 / 3;
+
+    background: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* END GRID 3 */
+
+/* GRID 4 */
+.art4 {
+    grid-area: 1 / 2 / 2 / 3;
+
+    font-size: 3em;
+    color: #1b0b55;
+
+    position: relative;
+}
+
+.art4 .airplane {
+    position: absolute;
+    top: 40%;
+    left: -15%;
+
+    transform: rotate(-90deg);
+
+    transition: .5s;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+.art4 .airplane.active {
+    animation: rotatePlane 1s, movePlane 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.cache {
+    background: #ccc;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cache.active{
+    animation: slideCache 1s;
+    animation-delay: 1.1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideCache {
+    0% {
+        transform: translate(0);
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* .cache2{
+    background: #ccc;
+    z-index: 1;
+    height: 50%;
+    width: 100%;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+    border-radius: 0 0 15px 15px ;
+} */
+
+.bloc {
+
+    padding: 2em;
+
+    width: 80%;
+}
+
+.bloc h2 {
+    margin: .5em 0 .5em 0;
+
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.bloc p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+}
+
+@keyframes rotatePlane {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes movePlane {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-10vh);
+    }
+
+    100% {
+        transform: translateX(30em);
+    }
+}
+
+
+@media all and (max-width:767px) {
+    .content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+    .art1 {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .art2 {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .art3 {
+        grid-area: 3 / 1 / 4 / 2;
+    }
+
+    .art4 {
+        grid-area: 4 / 1 / 5 / 2;
+    }
+
+    .bloc {
+        width: 90%;
+    }
+}
+
+.cache .loader {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* position: relative; */
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: #fff;
+    border: 8px solid #131a1d;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -50%;
+    width: 100%;
+    height: 100%;
+    background: #263238;
+    z-index: 5;
+    border-bottom: 8px solid #131a1d;
+    box-sizing: border-box;
+    -webkit-animation: eyeShade 3s infinite;
+    animation: eyeShade 3s infinite;
+}
+
+.loader::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    bottom: 15px;
+    width: 32px;
+    z-index: 2;
+    height: 32px;
+    background: #111;
+    border-radius: 50%;
+    -webkit-animation: eyeMove 3s infinite;
+    animation: eyeMove 3s infinite;
+}
+
+@-webkit-keyframes eyeShade {
+    0% {
+        transform: translateY(0)
+    }
+
+    20% {
+        transform: translateY(5px)
+    }
+
+    40%,
+    50% {
+        transform: translateY(-5px)
+    }
+
+    60% {
+        transform: translateY(-8px)
+    }
+
+    75% {
+        transform: translateY(5px)
+    }
+
+    100% {
+        transform: translateY(10px)
+    }
+}
+
+@keyframes eyeShade {
+    0% {
+        transform: translateY(0)
+    }
+
+    20% {
+        transform: translateY(5px)
+    }
+
+    40%,
+    50% {
+        transform: translateY(-5px)
+    }
+
+    60% {
+        transform: translateY(-8px)
+    }
+
+    75% {
+        transform: translateY(5px)
+    }
+
+    100% {
+        transform: translateY(10px)
+    }
+}
+
+@-webkit-keyframes eyeMove {
+    0% {
+        transform: translate(0, 0)
+    }
+
+    20% {
+        transform: translate(0px, 5px)
+    }
+
+    40%,
+    50% {
+        transform: translate(0px, -5px)
+    }
+
+    60% {
+        transform: translate(-10px, -5px)
+    }
+
+    75% {
+        transform: translate(-20px, 5px)
+    }
+
+    100% {
+        transform: translate(0, 10px)
+    }
+}
+
+@keyframes eyeMove {
+    0% {
+        transform: translate(0, 0)
+    }
+
+    20% {
+        transform: translate(0px, 5px)
+    }
+
+    40%,
+    50% {
+        transform: translate(0px, -5px)
+    }
+
+    60% {
+        transform: translate(-10px, -5px)
+    }
+
+    75% {
+        transform: translate(-20px, 5px)
+    }
+
+    100% {
+        transform: translate(0, 10px)
+    }
+}
+
+/* END GRID 4 */
+
+/* END PAGE 1 */
