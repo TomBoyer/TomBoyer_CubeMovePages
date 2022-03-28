@@ -10,6 +10,12 @@
     min-height: 100vh;
 
     background: #1b0b5528;
+
+    overflow: hidden;
+}
+
+.pic img{
+    border-radius: 15px;
 }
 
 /* GRID 1 */
@@ -77,12 +83,12 @@
     font-size: 2em;
 }
 
-.art1 .reload.active{
+.art1 .reload.active {
     animation: reload .5s;
 }
 
 @keyframes reload {
-    100%{
+    100% {
         transform: rotate(360deg);
     }
 }
@@ -92,6 +98,93 @@
 /* GRID 2 */
 .art2 {
     grid-area: 2 / 1 / 3 / 2;
+
+    font-size: 3em;
+    color: #1b0b55;
+
+    position: relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.art2 .bicycle {
+    position: absolute;
+    top: 40%;
+    right: -10%;
+
+    transform: scaleX(-1);
+
+    transition: .5s;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+.art2 .bicycle.active {
+    animation: rotateBicycle 1s, moveBicycle 2s;
+    /* animation-iteration-count: 1; */
+    animation-fill-mode: forwards;
+}
+
+@keyframes rotateBicycle {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes moveBicycle {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-30em);
+    }
+}
+
+.cache2 {
+    background: #ccc;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cache2.active {
+    animation: slideCache2 1s;
+    animation-delay: .4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideCache2 {
+    0% {
+        transform: translate(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
 }
 
 /* END GRID 2 */
@@ -105,11 +198,81 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    position: relative;
+}
+
+.art3 .reload {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+
+    transition: .5s;
+
+    cursor: pointer;
+
+    font-size: 2em;
+}
+
+.go2 {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+
+    height: 4em;
+    width: 4em;
+
+    background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    padding: .2em;
+    text-shadow: 0px 2px 0px #810e05;
+
+    transition: .1s;
+}
+
+.go2 p {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.go2:hover {
+    box-shadow: 4px 3px 0px 0px #8a2a21;
+    transform: translate(-4px, -3px);
+}
+
+.go2:active {
+    transform: translate(4px, 3px);
+    box-shadow: none;
+}
+
+.art3 .reload2 {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+
+    transition: .5s;
+
+    cursor: pointer;
+
+    font-size: 2em;
+}
+
+.art3 .reload2.active {
+    animation: reload .5s;
 }
 
 /* END GRID 3 */
 
 /* GRID 4 */
+
 .art4 {
     grid-area: 1 / 2 / 2 / 3;
 
@@ -117,12 +280,16 @@
     color: #1b0b55;
 
     position: relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .art4 .airplane {
     position: absolute;
     top: 40%;
-    left: -15%;
+    left: -10%;
 
     transform: rotate(-90deg);
 
@@ -135,7 +302,7 @@
 
 .art4 .airplane.active {
     animation: rotatePlane 1s, movePlane 2s;
-    animation-iteration-count: 1;
+    /* animation-iteration-count: 1; */
     animation-fill-mode: forwards;
 }
 
@@ -158,7 +325,7 @@
     align-items: center;
 }
 
-.cache.active{
+.cache.active {
     animation: slideCache 1s;
     animation-delay: 1.1s;
     animation-fill-mode: forwards;
@@ -168,26 +335,12 @@
     0% {
         transform: translate(0);
     }
+
     100% {
         transform: translateX(100%);
         opacity: 0;
     }
 }
-
-/* .cache2{
-    background: #ccc;
-    z-index: 1;
-    height: 50%;
-    width: 100%;
-
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-
-    border-radius: 0 0 15px 15px ;
-} */
 
 .bloc {
 
@@ -266,7 +419,7 @@
     }
 }
 
-.cache .loader {
+.loader {
     position: absolute;
     top: 40%;
     left: 50%;
